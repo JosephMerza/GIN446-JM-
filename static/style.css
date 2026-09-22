@@ -1,0 +1,511 @@
+/* =========================================================
+   NEON NETWORK
+   Flask Web Programming Portfolio
+   Vanilla CSS — No Framework
+   ========================================================= */
+
+
+/* =========================================================
+   1. THEME VARIABLES
+   ========================================================= */
+
+:root {
+    /* Main colors */
+    --bg-main: #070b12;
+    --bg-header: #0a1019;
+    --bg-card: #0e1621;
+    --bg-card-hover: #121d2b;
+    --bg-nav: #080d15;
+    --bg-footer: #080d14;
+
+    /* Text */
+    --text-main: #f5f9ff;
+    --text-secondary: #aeb9c8;
+    --text-muted: #778395;
+
+    /* Neon colors */
+    --neon-cyan: #00e5ff;
+    --neon-purple: #8b5cf6;
+
+    /* Borders */
+    --border: rgba(0, 229, 255, 0.18);
+    --border-hover: rgba(0, 229, 255, 0.55);
+
+    /* Typography */
+    --font-main: Arial, Helvetica, sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+
+    /* Layout */
+    --max-width: 1100px;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    /* Effects */
+    --transition: 0.2s ease;
+    --shadow-small: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --shadow-neon: 0 0 25px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   2. BASIC RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(0, 229, 255, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 35%,
+            rgba(139, 92, 246, 0.05),
+            transparent 25%
+        ),
+        var(--bg-main);
+
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+header {
+    padding: 4.5rem 1.5rem 3.5rem;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.07),
+            rgba(139, 92, 246, 0.06)
+        );
+
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    max-width: 950px;
+    margin: 0 auto 1rem;
+
+    color: var(--text-main);
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 0 20px rgba(0, 229, 255, 0.18);
+}
+
+header p {
+    max-width: 700px;
+    margin: 0 auto;
+
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(8, 13, 21, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+
+    list-style: none;
+}
+
+nav li {
+    margin: 0.2rem;
+}
+
+
+/* Navigation links */
+
+nav a {
+    display: block;
+
+    padding: 0.55rem 0.85rem;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    /* Removes the normal link underline */
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* Hover effect */
+
+nav a:hover {
+    color: var(--neon-cyan);
+
+    background: rgba(0, 229, 255, 0.06);
+
+    border-color: var(--border);
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.08);
+}
+
+
+/* Keyboard accessibility */
+
+nav a:focus {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT
+   ========================================================= */
+
+main {
+    width: min(
+        calc(100% - 2rem),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+    padding: 4rem 0;
+}
+
+
+/* =========================================================
+   6. MAIN HEADINGS
+   ========================================================= */
+
+main h1 {
+    margin: 0 0 2rem;
+
+    color: var(--neon-cyan);
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+
+    line-height: 1.25;
+
+    text-shadow:
+        0 0 15px rgba(0, 229, 255, 0.18);
+}
+
+h2 {
+    margin: 0 0 1.5rem;
+
+    color: var(--text-main);
+
+    font-size: 1.6rem;
+}
+
+h3 {
+    color: var(--neon-cyan);
+
+    font-size: 1.2rem;
+}
+
+h4,
+h5,
+h6 {
+    color: var(--text-main);
+}
+
+
+/* =========================================================
+   7. SECTIONS / CONTENT CARDS
+   ========================================================= */
+
+section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14, 22, 33, 0.98),
+            rgba(10, 17, 27, 0.98)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        border-color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+section:hover {
+    background: var(--bg-card-hover);
+
+    border-color: var(--border-hover);
+
+    box-shadow:
+        var(--shadow-small),
+        var(--shadow-neon);
+}
+
+
+/* =========================================================
+   8. TEXT
+   ========================================================= */
+
+p {
+    color: var(--text-secondary);
+}
+
+main p {
+    max-width: 850px;
+}
+
+
+/* =========================================================
+   9. ALL NORMAL LINKS
+   ========================================================= */
+
+main a {
+    color: var(--neon-cyan);
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition),
+        text-shadow var(--transition);
+}
+
+main a:hover {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.45);
+}
+
+
+/* =========================================================
+   10. LISTS
+   ========================================================= */
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.6rem;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   11. WEEKLY WORK
+   ========================================================= */
+
+section ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+section ul li {
+    margin-bottom: 0.75rem;
+    padding: 0;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    overflow: hidden;
+
+    transition:
+        border-color var(--transition),
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+
+/* Make the ENTIRE item clickable */
+
+section ul li a {
+    display: block;
+
+    width: 100%;
+
+    padding: 1rem 1.2rem;
+
+    color: var(--text-main);
+
+    text-decoration: none;
+}
+
+section ul li:hover {
+    background: var(--bg-card-hover);
+
+    border-color: var(--border-hover);
+
+    transform: translateX(3px);
+}
+
+section ul li a:hover {
+    color: var(--neon-cyan);
+
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+
+/* =========================================================
+   12. FOOTER
+   ========================================================= */
+
+footer {
+    margin-top: 2rem;
+    padding: 2.5rem 1.5rem;
+
+    text-align: center;
+
+    background: var(--bg-footer);
+
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    max-width: 900px;
+
+    margin: 0 auto 0.5rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   13. MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    header {
+        padding: 3rem 1rem 2.5rem;
+    }
+
+    header h1 {
+        font-size: 1.9rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    nav ul {
+        padding: 0.6rem;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    main {
+        width: calc(100% - 1.5rem);
+
+        padding: 2.5rem 0;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* =========================================================
+   14. REDUCE MOTION FOR ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}

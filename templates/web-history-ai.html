@@ -1,28 +1,14 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>History of the Web</title>
-</head>
+{% block title %}History of the Web (AI){% endblock %}
 
-<body>
+{% block content %}
+      
+      
+      <h1>History of the Web</h1>
+    
 
-    <header>
-        <h1>History of the Web</h1>
-    </header>
-
-    <nav>
-        <a href="#introduction">Introduction</a>
-        <a href="#milestones">Verified Milestones</a>
-        <a href="#technologies">Three Key Technologies</a>
-        <a href="#sources">Reliable Sources</a>
-    </nav>
-
-    <main>
-
-        <section id="introduction">
+        <section>
             <h2>Introduction</h2>
 
             <p>
@@ -35,7 +21,7 @@
         </section>
 
 
-        <section id="milestones">
+        <section >
             <h2>Verified Milestones</h2>
 
             <article>
@@ -86,7 +72,7 @@
         </section>
 
 
-        <section id="technologies">
+        <section>
             <h2>Three Key Technologies</h2>
 
             <article>
@@ -122,60 +108,46 @@
         </section>
 
 
-        <section id="sources">
+        <section>
             <h2>Reliable Sources Used</h2>
-
-            <ol>
+            <article>
+            <ul>
                 <li>
                     CERN — A Short History of the Web
-                    <br>
-                    <a href="https://home.cern/science/computing/birth-web/short-history-web">
-                        https://home.cern/science/computing/birth-web/short-history-web
-                    </a>
+                    <em>
+                    <a href="https://home.cern/science/computing/birth-web/short-history-web">   
+                    </a></em>
                 </li>
 
                 <li>
                     CERN — Birth of the World Wide Web Timeline
-                    <br>
+                    <em>
                     <a href="https://timeline.web.cern.ch/timeline-header/90">
-                        https://timeline.web.cern.ch/timeline-header/90
-                    </a>
+                    </a></em>
                 </li>
 
                 <li>
                     W3C — History of the World Wide Web Consortium
-                    <br>
+                    <em>
                     <a href="https://www.w3.org/about/history/">
-                        https://www.w3.org/about/history/
-                    </a>
+                    </a></em>
                 </li>
 
                 <li>
                     W3C — A Little History of the World Wide Web
-                    <br>
+                    <em>
                     <a href="https://www.w3.org/People/Berners-Lee/History.html">
-                        https://www.w3.org/People/Berners-Lee/History.html
-                    </a>
+                    </a></em>
                 </li>
 
                 <li>
                     MDN — Evolution of HTTP
-                    <br>
+                    <em>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP">
-                        https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP
-                    </a>
+                    </a></em>
                 </li>
-            </ol>
+            </ul>
+            </article>
         </section>
 
-    </main>
-
-
-    <footer>
-        <p>History of the Web</p>
-    </footer>
-
-</body>
-
-</html>
-```
+{% endblock %}

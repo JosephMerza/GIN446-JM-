@@ -1,70 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>History of Web</title>
-    </head>
+{% block title %}History of the Web{% endblock %}
 
-    <body>
+{% block content %}
 
-        <h1>History of Web</h1>
+<section>
 
-        <nav>
-            <h2>Navigation</h2>
-                <ol type="I">
-                    <li><a href="#introduction">Introduction</a></li>
-                    <li><a href="#milestone">Verified milestones</a></li>
-                    <li><a href="#keytech">Three Key Technologies</a></li>
-                    <li><a href="#relsrc">Reliable Sources</a></li>
-                </ol>
-        </nav>
+```
+<h1>History of Web</h1>
 
-        <h2 id="introduction">Introduction</h2>
-            <p>The web is a system that allows people to access websites and web page in order to share information using internet, so the web is a service that operate on the internet. It was invented by Tim Bernes-lee at CERN. At 1990, the first website was operating at CERN.</p>
-            
 
-        <h2 id="Verified milestones:">Verified milestones:</h2>
+<section>
+    <h2>Introduction</h2>
 
-            <h3>1989 — foundation of web</h3>
-                <p>Tim Berners-Lee invented the World Wide Web. He coined the term "World Wide Web," wrote the first World Wide Web server, "httpd," and the first client program, "Worldwide Web," in October 1990.</p>
-                
-            <h3>1991 — web is available outside CERN </h3>
-                <p>   the first servers were running outside of CERN by early 1991.Berners-Lee posted on the public alt.hypertext newsgroup. This is now considered to be the official start of the World Wide Web as a public project.</p>
-               
-            <h3>1993 — Mosaic browser was released.</h3>
-                <p>NCSA releases working versions of Mosaic browser for all common platforms: X, PC/Windows and Macintosh.</p>
-                    
-            <h3>1994 — World Wide Web Consortium (W3C) was established.</h3>
-                <p>In 1994, the decision to form the World Wide Web Consortium came at the urging of many companies investing increasing resources into the web. In founding the World Wide Web Consortium, Sir Tim Berners-Lee created a community of peers. </p>
-            
-        <h2 id="Three Key Technologies:">Three Key Technologies:</h2>
+    <p>
+        The web is a system that allows people to access websites and web page in order to share information using internet, so the web is a service that operate on the internet. It was invented by Tim Bernes-lee at CERN. At 1990, the first website was operating at CERN.
+    </p>
+</section>
 
-            <h3>1. HTML</h3>
-                <p>HyperText Markup Language" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web</p>
-                
-            <h3>2.HTTP</h3>
-                <p>HyperText Transfer Protocol . A protocol to exchange these documents.</p>
 
-            <h3>3.URL</h3>
-                <p>Uniform Resource Locator. An address used to identify and locate resources on the Web.</p>
-        
-                <h2 id="relsrc">Reliable Sources</h2>
-            <ul>
-                <li><em><a href="https://home.cern/science/computing/birth-web/short-history-web?utm_source=chatgpt.com">CERN — A Short History of the Web</a></em></li>
-                <li><em><a href="https://timeline.web.cern.ch/timeline-header/90?utm_source=chatgpt.com">CERN — Birth of the Web Timeline</a></em></li>
-                <li><em><a href="https://www.w3.org/about/history/?utm_source=chatgpt.com">W3C — History of the World Wide Web Consortium</a></em></li>
-                <li><em><a href="https://www.w3.org/People/Berners-Lee/History.html?utm_source=chatgpt.com">.  W3C — A Little History of the World Wide Web</a></em></li>
-                <li><em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP?utm_source=chatgpt.com">MDN — Evolution of HTTP</a></em></li>
-                
-            </ul>
+<section>
+    <h2>Verified milestones:</h2>
 
-    </body>
+    <article>
+        <h3>1989 — foundation of web</h3>
 
-    <footer>
-        <em>Web Programming — built with Flask and deployed on Render.</em>
-        <em>This website is created for educational purposes only, as part of the GIN446 - Web Programming course, School of Engineering, USEK. (Fall 2026-2027)</em>
-    </footer>
+        <p>
+            Tim Berners-Lee invented the World Wide Web. He coined the term "World Wide Web," wrote the first World Wide Web server, "httpd," and the first client program, "Worldwide Web," in October 1990.
+        </p>
+    </article>
 
-</html>
+    <article>
+        <h3>1991 — web is available outside CERN</h3>
+
+        <p>
+            the first servers were running outside of CERN by early 1991. Berners-Lee posted on the public alt.hypertext newsgroup. This is now considered to be the official start of the World Wide Web as a public project.
+        </p>
+    </article>
+
+    <article>
+        <h3>1993 — Mosaic browser was released.</h3>
+
+        <p>
+            NCSA releases working versions of Mosaic browser for all common platforms: X, PC/Windows and Macintosh.
+        </p>
+    </article>
+
+    <article>
+        <h3>1994 — World Wide Web Consortium (W3C) was established.</h3>
+
+        <p>
+            In 1994, the decision to form the World Wide Web Consortium came at the urging of many companies investing increasing resources into the web. In founding the World Wide Web Consortium, Sir Tim Berners-Lee created a community of peers.
+        </p>
+    </article>
+</section>
+
+
+<section>
+    <h2>Three Key Technologies:</h2>
+
+    <article>
+        <h3>1. HTML</h3>
+
+        <p>
+            HyperText Markup Language" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web
+        </p>
+    </article>
+
+    <article>
+        <h3>2. HTTP</h3>
+
+        <p>
+            HyperText Transfer Protocol. A protocol to exchange these documents.
+        </p>
+    </article>
+
+    <article>
+        <h3>3. URL</h3>
+
+        <p>
+            Uniform Resource Locator. An address used to identify and locate resources on the Web.
+        </p>
+    </article>
+</section>
+
+
+<section>
+    <h2>Reliable Sources</h2>
+
+    <ul>
+        <li>
+            <em>
+                <a href="https://home.cern/science/computing/birth-web/short-history-web?utm_source=chatgpt.com">
+                    CERN — A Short History of the Web
+                </a>
+            </em>
+        </li>
+
+        <li>
+            <em>
+                <a href="https://timeline.web.cern.ch/timeline-header/90?utm_source=chatgpt.com">
+                    CERN — Birth of the Web Timeline
+                </a>
+            </em>
+        </li>
+
+        <li>
+            <em>
+                <a href="https://www.w3.org/about/history/?utm_source=chatgpt.com">
+                    W3C — History of the World Wide Web Consortium
+                </a>
+            </em>
+        </li>
+
+        <li>
+            <em>
+                <a href="https://www.w3.org/People/Berners-Lee/History.html?utm_source=chatgpt.com">
+                    W3C — A Little History of the World Wide Web
+                </a>
+            </em>
+        </li>
+
+        <li>
+            <em>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP?utm_source=chatgpt.com">
+                    MDN — Evolution of HTTP
+                </a>
+            </em>
+        </li>
+    </ul>
+</section>
+```
+
+</section>
+
+{% endblock %}

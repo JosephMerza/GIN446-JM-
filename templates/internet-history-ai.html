@@ -1,28 +1,13 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>History of the Internet</title>
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block title %}History of the Internet(AI){% endblock %}
 
-    <header>
-        <h1>History of the Internet</h1>
-    </header>
-
-    <nav>
-        <a href="#introduction">Introduction</a>
-        <a href="#milestones">Verified Milestones</a>
-        <a href="#technologies">Three Key Technologies</a>
-        <a href="#sources">Reliable Sources</a>
-    </nav>
-
-    <main>
-
-        <section id="introduction">
+{% block content %} 
+    
+    <h1>History of the Internet</h1>
+    
+       <section>
             <h2>Introduction</h2>
 
             <p>
@@ -35,7 +20,7 @@
         </section>
 
 
-        <section id="milestones">
+        <section>
             <h2>Verified Milestones</h2>
 
             <article>
@@ -104,7 +89,7 @@
         </section>
 
 
-        <section id="technologies">
+        <section>
             <h2>Three Key Technologies</h2>
 
             <article>
@@ -152,45 +137,34 @@
         </section>
 
 
-        <section id="sources">
+        <section >
             <h2>Reliable Sources Used</h2>
 
             <article>
-                <ol>
+                <ul>
                     <li>
                         Internet Society — A Brief History of the Internet:
-                        <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet">
-                            Internet Society
-                        </a>
+                        <em><a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet">
+                           
+                        </a></em>
                     </li>
 
                     <li>
                         Internet Society — A Brief History of the Internet &amp;
                         Related Networks:
-                        <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet-related-networks">
-                            Internet Society
-                        </a>
+                        <em><a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet-related-networks">
+                          
+                        </a></em>
                     </li>
 
                     <li>
                         National Science Foundation — Birth of the Commercial Internet:
-                        <a href="https://www.nsf.gov/impacts">
-                            National Science Foundation
-                        </a>
+                        <em><a href="https://www.nsf.gov/impacts">
+                          
+                        </a></em>
                     </li>
-                </ol>
+                </ul>
             </article>
 
         </section>
-
-    </main>
-
-
-    <footer>
-        <p>History of the Internet</p>
-    </footer>
-
-</body>
-
-</html>
-```
+{% endblock %}
