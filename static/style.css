@@ -1,29 +1,29 @@
 /* =========================================================
    NEON NETWORK
    Flask Web Programming Portfolio
+   Mobile-First Responsive CSS
    Vanilla CSS — No Framework
    ========================================================= */
 
 
 /* =========================================================
-   1. THEME VARIABLES
+   1. DESIGN TOKENS
    ========================================================= */
 
 :root {
-    /* Main colors */
+    /* Background colors */
     --bg-main: #070b12;
     --bg-header: #0a1019;
     --bg-card: #0e1621;
     --bg-card-hover: #121d2b;
-    --bg-nav: #080d15;
     --bg-footer: #080d14;
 
-    /* Text */
+    /* Text colors */
     --text-main: #f5f9ff;
     --text-secondary: #aeb9c8;
     --text-muted: #778395;
 
-    /* Neon colors */
+    /* Accent colors */
     --neon-cyan: #00e5ff;
     --neon-purple: #8b5cf6;
 
@@ -43,6 +43,8 @@
 
     /* Layout */
     --max-width: 1100px;
+    --nav-gap: 0.5rem;
+    --card-min-width: 240px;
 
     /* Radius */
     --radius-sm: 6px;
@@ -57,7 +59,7 @@
 
 
 /* =========================================================
-   2. BASIC RESET
+   2. GLOBAL RESET
    ========================================================= */
 
 * {
@@ -71,6 +73,8 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+
+    width: 100%;
 
     background:
         radial-gradient(
@@ -86,17 +90,34 @@ body {
         var(--bg-main);
 
     color: var(--text-main);
+
     font-family: var(--font-main);
+    font-size: 16px;
     line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+/* Prevent long content from breaking the layout */
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
 }
 
 
 /* =========================================================
    3. HEADER
+   Mobile first
    ========================================================= */
 
 header {
-    padding: 4.5rem 1.5rem 3.5rem;
+    width: 100%;
+
+    padding: 2.5rem 1rem;
 
     text-align: center;
 
@@ -111,36 +132,45 @@ header {
 }
 
 header h1 {
-    max-width: 950px;
+    max-width: 100%;
+
     margin: 0 auto 1rem;
 
     color: var(--text-main);
 
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1.2;
-    letter-spacing: 0.5px;
+    font-size: 1.8rem;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
 
     text-shadow:
         0 0 20px rgba(0, 229, 255, 0.18);
 }
 
 header p {
-    max-width: 700px;
+    max-width: 100%;
+
     margin: 0 auto;
 
     color: var(--text-secondary);
-    font-size: 1.05rem;
+
+    font-size: 0.95rem;
+
+    overflow-wrap: break-word;
 }
 
 
 /* =========================================================
    4. NAVIGATION
+   Mobile first
    ========================================================= */
 
 nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    width: 100%;
 
     background: rgba(8, 13, 21, 0.96);
 
@@ -150,133 +180,172 @@ nav {
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
+    width: 100%;
     max-width: var(--max-width);
 
     margin: 0 auto;
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 0.75rem;
 
     list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: var(--nav-gap);
 }
 
 nav li {
-    margin: 0.2rem;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
 }
 
 
-/* Navigation links */
+/* =========================================================
+   5. GLOBAL LINKS
+   ========================================================= */
 
-nav a {
-    display: block;
+a,
+a:visited {
+    display: inline-block;
 
-    padding: 0.55rem 0.85rem;
+    max-width: 100%;
 
-    color: var(--text-secondary);
+    color: var(--neon-cyan);
 
-    font-size: 0.9rem;
+    font-family: inherit;
+    font-size: inherit;
     font-weight: 600;
+    line-height: inherit;
 
-    /* Removes the normal link underline */
     text-decoration: none;
+
+    padding: 0.15rem 0.25rem;
+
+    background: transparent;
 
     border: 1px solid transparent;
     border-radius: var(--radius-sm);
+
+    overflow-wrap: break-word;
 
     transition:
         color var(--transition),
         background-color var(--transition),
         border-color var(--transition),
-        box-shadow var(--transition);
+        box-shadow var(--transition),
+        text-shadow var(--transition);
 }
 
+a:hover {
+    color: var(--text-main);
 
-/* Hover effect */
-
-nav a:hover {
-    color: var(--neon-cyan);
-
-    background: rgba(0, 229, 255, 0.06);
+    background-color: rgba(0, 229, 255, 0.06);
 
     border-color: var(--border);
 
     box-shadow:
-        0 0 12px rgba(0, 229, 255, 0.08);
+        0 0 10px rgba(0, 229, 255, 0.08);
+
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.35);
 }
 
+a:focus {
+    color: var(--text-main);
 
-/* Keyboard accessibility */
-
-nav a:focus {
     outline: 2px solid var(--neon-cyan);
     outline-offset: 2px;
 }
 
+a:active {
+    color: var(--neon-cyan);
 
-/* =========================================================
-   5. MAIN CONTENT
-   ========================================================= */
-
-main {
-    width: min(
-        calc(100% - 2rem),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-    padding: 4rem 0;
+    background-color: rgba(0, 229, 255, 0.1);
 }
 
 
 /* =========================================================
-   6. MAIN HEADINGS
+   6. MAIN CONTENT
+   Mobile first
    ========================================================= */
 
+main {
+    width: calc(100% - 1.5rem);
+
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+
+    padding: 2.5rem 0;
+}
+
 main h1 {
-    margin: 0 0 2rem;
+    margin: 0 0 var(--space-lg);
 
     color: var(--neon-cyan);
 
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-
+    font-size: 1.9rem;
     line-height: 1.25;
+
+    overflow-wrap: anywhere;
 
     text-shadow:
         0 0 15px rgba(0, 229, 255, 0.18);
 }
 
+
+/* =========================================================
+   7. HEADINGS
+   ========================================================= */
+
 h2 {
-    margin: 0 0 1.5rem;
+    margin: 0 0 var(--space-md);
 
     color: var(--text-main);
 
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
 }
 
 h3 {
     color: var(--neon-cyan);
 
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
 }
 
 h4,
 h5,
 h6 {
     color: var(--text-main);
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
 }
 
 
 /* =========================================================
-   7. SECTIONS / CONTENT CARDS
+   8. SECTIONS / CARDS
    ========================================================= */
 
 section {
-    margin-bottom: 2rem;
-    padding: 2rem;
+    width: 100%;
+
+    margin-bottom: var(--space-lg);
+
+    padding: 1.25rem;
 
     background:
         linear-gradient(
@@ -291,8 +360,8 @@ section {
     box-shadow: var(--shadow-small);
 
     transition:
-        border-color var(--transition),
         background-color var(--transition),
+        border-color var(--transition),
         box-shadow var(--transition);
 }
 
@@ -308,37 +377,18 @@ section:hover {
 
 
 /* =========================================================
-   8. TEXT
+   9. TEXT
    ========================================================= */
 
 p {
+    max-width: 100%;
+
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+
     color: var(--text-secondary);
-}
 
-main p {
-    max-width: 850px;
-}
-
-
-/* =========================================================
-   9. ALL NORMAL LINKS
-   ========================================================= */
-
-main a {
-    color: var(--neon-cyan);
-
-    text-decoration: none;
-
-    transition:
-        color var(--transition),
-        text-shadow var(--transition);
-}
-
-main a:hover {
-    color: #ffffff;
-
-    text-shadow:
-        0 0 8px rgba(0, 229, 255, 0.45);
+    overflow-wrap: break-word;
 }
 
 
@@ -348,57 +398,62 @@ main a:hover {
 
 ul,
 ol {
-    padding-left: 1.5rem;
+    margin-top: 0;
+
+    padding-left: 1.25rem;
+
+    max-width: 100%;
 }
 
 li {
     margin-bottom: 0.6rem;
 
     color: var(--text-secondary);
+
+    overflow-wrap: break-word;
 }
 
 
 /* =========================================================
    11. WEEKLY WORK
+   Responsive CSS Grid
    ========================================================= */
 
 section ul {
+    width: 100%;
+
     margin: 0;
     padding: 0;
 
     list-style: none;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: var(--space-sm);
 }
 
 section ul li {
-    margin-bottom: 0.75rem;
-    padding: 0;
+    min-width: 0;
+    width: 100%;
+
+    margin: 0;
+
+    padding: 1rem;
 
     background: var(--bg-card);
 
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
 
-    overflow: hidden;
+    overflow-wrap: break-word;
 
     transition:
-        border-color var(--transition),
         background-color var(--transition),
-        transform var(--transition);
-}
-
-
-/* Make the ENTIRE item clickable */
-
-section ul li a {
-    display: block;
-
-    width: 100%;
-
-    padding: 1rem 1.2rem;
-
-    color: var(--text-main);
-
-    text-decoration: none;
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
 section ul li:hover {
@@ -406,14 +461,15 @@ section ul li:hover {
 
     border-color: var(--border-hover);
 
-    transform: translateX(3px);
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25),
+        var(--shadow-neon);
 }
 
-section ul li a:hover {
-    color: var(--neon-cyan);
-
-    text-shadow:
-        0 0 8px rgba(0, 229, 255, 0.3);
+section ul li a {
+    max-width: 100%;
 }
 
 
@@ -422,8 +478,11 @@ section ul li a:hover {
    ========================================================= */
 
 footer {
-    margin-top: 2rem;
-    padding: 2.5rem 1.5rem;
+    width: 100%;
+
+    margin-top: var(--space-lg);
+
+    padding: 2rem 1rem;
 
     text-align: center;
 
@@ -433,13 +492,15 @@ footer {
 }
 
 footer p {
-    max-width: 900px;
+    max-width: 100%;
 
     margin: 0 auto 0.5rem;
 
     color: var(--text-muted);
 
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+
+    overflow-wrap: break-word;
 }
 
 footer p:last-child {
@@ -448,53 +509,152 @@ footer p:last-child {
 
 
 /* =========================================================
-   13. MOBILE
+   13. TABLET
+   600px and above
    ========================================================= */
 
-@media (max-width: 750px) {
+@media (min-width: 600px) {
+
+    :root {
+        --nav-gap: 0.6rem;
+    }
 
     header {
-        padding: 3rem 1rem 2.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     header h1 {
-        font-size: 1.9rem;
+        font-size: 2.3rem;
     }
 
     header p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     nav ul {
-        padding: 0.6rem;
+        flex-direction: row;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        padding: 0.75rem 1rem;
     }
 
     nav li {
-        width: 100%;
-    }
-
-    nav a {
-        text-align: center;
+        width: auto;
     }
 
     main {
-        width: calc(100% - 1.5rem);
+        width: calc(100% - 2rem);
 
-        padding: 2.5rem 0;
-    }
-
-    section {
-        padding: 1.5rem;
+        padding: 3.5rem 0;
     }
 
     main h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.55rem;
+    }
+
+    section {
+        padding: 1.75rem;
+    }
+
+    section ul {
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(var(--card-min-width), 1fr)
+            );
+
+        gap: var(--space-md);
+    }
+
+    footer {
+        padding: 2.5rem 1.5rem;
     }
 }
 
 
 /* =========================================================
-   14. REDUCE MOTION FOR ACCESSIBILITY
+   14. DESKTOP
+   900px and above
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+    header {
+        padding: 4.5rem 1.5rem 3.5rem;
+    }
+
+    header h1 {
+        max-width: 950px;
+
+        font-size: 3.2rem;
+    }
+
+    header p {
+        max-width: 700px;
+
+        font-size: 1.05rem;
+    }
+
+    nav ul {
+        justify-content: space-evenly;
+    }
+
+    main {
+        width: min(
+            calc(100% - 2rem),
+            var(--max-width)
+        );
+
+        padding: var(--space-xl) 0;
+    }
+
+    main h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    footer p {
+        max-width: 900px;
+
+        font-size: 0.85rem;
+    }
+}
+
+
+/* =========================================================
+   15. LARGE DESKTOP
+   1200px and above
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    main {
+        max-width: var(--max-width);
+    }
+
+    nav ul {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -507,5 +667,6 @@ footer p:last-child {
     *::before,
     *::after {
         transition: none !important;
+        animation: none !important;
     }
 }
