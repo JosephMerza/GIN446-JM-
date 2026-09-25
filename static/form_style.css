@@ -1,0 +1,932 @@
+/* =========================================================
+   NEON NETWORK
+   Engineering Student Profile Form
+   Mobile-First Responsive CSS
+   Vanilla CSS — No Framework
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    /* Background colors */
+    --bg-main: #070b12;
+    --bg-header: #0a1019;
+    --bg-card: #0e1621;
+    --bg-card-hover: #121d2b;
+    --bg-input: #090f18;
+    --bg-footer: #080d14;
+
+    /* Text colors */
+    --text-main: #f5f9ff;
+    --text-secondary: #aeb9c8;
+    --text-muted: #778395;
+
+    /* Accent colors */
+    --neon-cyan: #00e5ff;
+    --neon-purple: #8b5cf6;
+
+    /* Borders */
+    --border: rgba(0, 229, 255, 0.18);
+    --border-hover: rgba(0, 229, 255, 0.55);
+
+    /* Typography */
+    --font-main: Arial, Helvetica, sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+
+    /* Layout */
+    --max-width: 1100px;
+    --nav-gap: 0.5rem;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    /* Effects */
+    --transition: 0.2s ease;
+    --shadow-small: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --shadow-neon: 0 0 25px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   2. GLOBAL RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    width: 100%;
+
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(0, 229, 255, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 35%,
+            rgba(139, 92, 246, 0.05),
+            transparent 25%
+        ),
+        var(--bg-main);
+
+    color: var(--text-main);
+
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+/* Prevent form elements from overflowing */
+
+img,
+video,
+iframe,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+header {
+    width: 100%;
+
+    padding: 2.5rem 1rem;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.07),
+            rgba(139, 92, 246, 0.06)
+        );
+
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    max-width: 100%;
+
+    margin: 0 auto 1rem;
+
+    color: var(--text-main);
+
+    font-size: 1.8rem;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 0 20px rgba(0, 229, 255, 0.18);
+}
+
+header p {
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    color: var(--text-secondary);
+
+    font-size: 0.95rem;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(8, 13, 21, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+}
+
+nav ul {
+    width: 100%;
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+    padding: 0.6rem 0.75rem;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: var(--nav-gap);
+}
+
+nav li {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   5. GLOBAL LINKS
+   ========================================================= */
+
+a,
+a:visited {
+    display: inline-block;
+
+    max-width: 100%;
+
+    color: var(--neon-cyan);
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    line-height: inherit;
+
+    text-decoration: none;
+
+    padding: 0.15rem 0.25rem;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    overflow-wrap: break-word;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        text-shadow var(--transition);
+}
+
+a:hover {
+    color: var(--text-main);
+
+    background-color: rgba(0, 229, 255, 0.06);
+
+    border-color: var(--border);
+
+    box-shadow:
+        0 0 10px rgba(0, 229, 255, 0.08);
+
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.35);
+}
+
+a:focus {
+    color: var(--text-main);
+
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+a:active {
+    color: var(--neon-cyan);
+
+    background-color: rgba(0, 229, 255, 0.1);
+}
+
+
+/* =========================================================
+   6. MAIN CONTENT
+   Mobile first
+   ========================================================= */
+
+main {
+    width: calc(100% - 1.5rem);
+
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+
+    padding: 2.5rem 0;
+}
+
+main h1 {
+    margin: 0 0 var(--space-lg);
+
+    color: var(--neon-cyan);
+
+    font-size: 1.9rem;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 0 15px rgba(0, 229, 255, 0.18);
+}
+
+main h2 {
+    margin: 0 0 var(--space-sm);
+
+    color: var(--neon-cyan);
+
+    font-size: 1.8rem;
+    line-height: 1.3;
+
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 0 15px rgba(0, 229, 255, 0.15);
+}
+
+
+/* =========================================================
+   7. TEXT
+   ========================================================= */
+
+p {
+    max-width: 100%;
+
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+
+    color: var(--text-secondary);
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   8. FORM
+   ========================================================= */
+
+form {
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   9. FIELDSETS
+   ========================================================= */
+
+fieldset {
+    width: 100%;
+
+    margin: 0 0 var(--space-lg);
+
+    padding: 1.25rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14, 22, 33, 0.98),
+            rgba(10, 17, 27, 0.98)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+fieldset:hover {
+    border-color: var(--border-hover);
+
+    box-shadow:
+        var(--shadow-small),
+        var(--shadow-neon);
+}
+
+
+/* =========================================================
+   10. LEGENDS
+   ========================================================= */
+
+legend {
+    max-width: 100%;
+
+    padding: 0.35rem 0.75rem;
+
+    color: var(--neon-cyan);
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.18);
+}
+
+
+/* =========================================================
+   11. FORM LABELS
+   ========================================================= */
+
+label {
+    display: inline-block;
+
+    max-width: 100%;
+
+    margin-bottom: 0.35rem;
+
+    color: var(--text-secondary);
+
+    font-weight: 600;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   12. TEXT INPUTS
+   ========================================================= */
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[list],
+select,
+textarea {
+    width: 100%;
+
+    padding: 0.75rem 0.85rem;
+
+    color: var(--text-main);
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+
+    background: var(--bg-input);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+
+    opacity: 1;
+}
+
+
+/* Focus */
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[list]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--neon-cyan);
+
+    background: #0b141f;
+
+    box-shadow:
+        0 0 0 2px rgba(0, 229, 255, 0.08),
+        0 0 12px rgba(0, 229, 255, 0.12);
+}
+
+
+/* =========================================================
+   13. SELECT ELEMENTS
+   ========================================================= */
+
+select {
+    cursor: pointer;
+}
+
+select option,
+select optgroup {
+    color: var(--text-main);
+
+    background: var(--bg-input);
+}
+
+select[multiple] {
+    min-height: 180px;
+
+    padding: 0.5rem;
+}
+
+select[multiple] option {
+    padding: 0.55rem;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   14. TEXTAREA
+   ========================================================= */
+
+textarea {
+    display: block;
+
+    min-height: 120px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   15. RADIO BUTTONS & CHECKBOXES
+   ========================================================= */
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+
+    margin: 0 0.35rem 0 0;
+
+    accent-color: var(--neon-cyan);
+
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    display: inline;
+
+    margin-right: 0.75rem;
+
+    color: var(--text-secondary);
+
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   16. NESTED FIELDSETS
+   ========================================================= */
+
+fieldset fieldset {
+    margin: 1.25rem 0 0;
+
+    padding: 1rem;
+
+    background:
+        rgba(7, 11, 18, 0.55);
+
+    border-color: rgba(0, 229, 255, 0.14);
+
+    box-shadow: none;
+}
+
+fieldset fieldset:hover {
+    box-shadow: none;
+
+    border-color: var(--border-hover);
+}
+
+fieldset fieldset legend {
+    font-size: 0.95rem;
+
+    background: var(--bg-main);
+}
+
+
+/* =========================================================
+   17. FORM HELP TEXT
+   ========================================================= */
+
+fieldset p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   18. COLOR INPUT
+   ========================================================= */
+
+input[type="color"] {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0.25rem;
+
+    background: var(--bg-input);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+input[type="color"]:hover {
+    border-color: var(--border-hover);
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.1);
+}
+
+
+/* =========================================================
+   19. SUBMIT & RESET BUTTONS
+   ========================================================= */
+
+input[type="submit"],
+input[type="reset"] {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 1rem;
+
+    padding: 0.8rem 1rem;
+
+    color: var(--text-main);
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.12),
+            rgba(139, 92, 246, 0.12)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    color: var(--text-main);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.2),
+            rgba(139, 92, 246, 0.2)
+        );
+
+    border-color: var(--border-hover);
+
+    box-shadow:
+        0 0 15px rgba(0, 229, 255, 0.12);
+
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+    outline: 2px solid var(--neon-cyan);
+
+    outline-offset: 2px;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   20. FOOTER
+   ========================================================= */
+
+footer {
+    width: 100%;
+
+    margin-top: var(--space-lg);
+
+    padding: 2rem 1rem;
+
+    text-align: center;
+
+    background: var(--bg-footer);
+
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    max-width: 100%;
+
+    margin: 0 auto 0.5rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+
+    overflow-wrap: break-word;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   21. TABLET
+   600px and above
+   ========================================================= */
+
+@media (min-width: 600px) {
+
+    :root {
+        --nav-gap: 0.6rem;
+    }
+
+    header {
+        padding: 3.5rem 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.3rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        padding: 0.75rem 1rem;
+    }
+
+    nav li {
+        width: auto;
+    }
+
+    main {
+        width: calc(100% - 2rem);
+
+        padding: 3.5rem 0;
+    }
+
+    main h2 {
+        font-size: 2rem;
+    }
+
+    fieldset {
+        padding: 1.75rem;
+    }
+
+    legend {
+        font-size: 1.2rem;
+    }
+
+    input[type="color"] {
+        width: 120px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        display: inline-block;
+
+        width: auto;
+
+        min-width: 150px;
+
+        margin-top: 1rem;
+
+        margin-right: 0.5rem;
+    }
+
+    footer {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+
+/* =========================================================
+   22. DESKTOP
+   900px and above
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+    header {
+        padding: 4.5rem 1.5rem 3.5rem;
+    }
+
+    header h1 {
+        max-width: 950px;
+
+        font-size: 3.2rem;
+    }
+
+    header p {
+        max-width: 700px;
+
+        font-size: 1.05rem;
+    }
+
+    nav ul {
+        justify-content: space-evenly;
+    }
+
+    main {
+        width: min(
+            calc(100% - 2rem),
+            var(--max-width)
+        );
+
+        padding: var(--space-xl) 0;
+    }
+
+    main h2 {
+        font-size: 2.2rem;
+    }
+
+    fieldset {
+        padding: 2rem;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        min-width: 160px;
+    }
+
+    footer p {
+        max-width: 900px;
+
+        font-size: 0.85rem;
+    }
+}
+
+
+/* =========================================================
+   23. LARGE DESKTOP
+   1200px and above
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    main {
+        max-width: var(--max-width);
+    }
+
+    nav ul {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

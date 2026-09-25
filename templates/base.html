@@ -6,6 +6,8 @@
     <title>{% block title %}My Web Programming Portfolio{% endblock %}</title>
     <link rel="stylesheet" 
         href="{{ url_for('static', filename='style.css') }}"/>
+    
+    {% block head %}{% endblock %}
 </head>
 <body>
     <header>
@@ -20,6 +22,7 @@
             <li><a href="/web-history">History of the Web</a></li>
             <li><a href="/internet-history-ai">History of the Internet (AI)</a></li>
             <li><a href="/web-history-ai">History of the Web (AI)</a></li>
+            <li><a href="/submit-profile">Engineering Student Profile</a></li>
         </ul>
     </nav>
 
