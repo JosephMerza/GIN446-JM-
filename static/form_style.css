@@ -930,3 +930,10 @@ footer p:last-child {
         animation: none !important;
     }
 }
+#review-panel {
+    display: none;
+}
+
+#review-panel.open {
+    display: block;
+}
