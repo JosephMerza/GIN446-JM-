@@ -159,5 +159,5 @@ editButton.addEventListener('click', function() {
     form.style.display = 'block';
 });
 confirmButton.addEventListener('click', function() {
-    form.submit();
+    HTMLFormElement.prototype.submit.call(form);
 });
