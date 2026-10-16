@@ -21,25 +21,25 @@ experience, and Final Year Project preferences.</p>
 <fieldset>
    <legend>1.Personal Information</legend> 
    <label for="student_id">Student ID</label>
-   <input type="number" id="student_id" name="student_id" placeholder="202400888"  required><br><br>
+   <input type="number" id="student_id" name="student_id" placeholder="202xxxxxx" pattern="[0-9]{8}" required><br><br>
    <label for="FullName">Name:</label>
-   <input type="text" id="FullName" name="fullname" placeholder="First Name & Last Name" required><br><br>
+   <input type="text" id="FullName" name="fullname" placeholder="First Name & Last Name"  required><br><br>
    <label for="email">Usek Email:</label>
-   <input type="email" id="email" name="email"  required><br><br>
+   <input type="email" id="email" name="email" placeholder="firstName.Lastname@net.usek.edu.lb" pattern="[a-zA-Z]+\.[a-zA-Z]+@net\.usek\.edu\.lb"  required><br><br>
    <label for="phone">Mobile Number:</label>
-   <input type="tel" id="phone" name="phone"  required><br><br>
+   <input type="tel" id="phone" name="phone" placeholder="+xxx xx/xxxxxx" pattern="\+961 [0-9]{2}/[0-9]{3}[0-9]{3}"  required><br><br>
    <label for="birthdate">Date of Birth:</label>
    <input type="date" id="birthdate" name="birthdate" required><br><br>
    <label for="GithubUrl">GitHub:</label>
-   <input type="url" id="GithubUrl" name="portfolio" required><br><br>
+   <input type="url" id="GithubUrl" name="portfolio" pattern="https://github\.com/[a-zA-Z0-9-]+/?" placeholder="https://github.com/Username" required><br><br>
    <label for="RenderLink">GIN446 website:</label>
-   <input type="url" id="RenderLink" name="gin446"  required><br><br>
+   <input type="url" id="RenderLink" name="gin446" placeholder="https://MyWeb.onrender.com"  required><br><br>
 </fieldset>
 
 <fieldset>
     <legend>2.Academic information </legend>
     <label for="EngMajor">Engineering Major</label>
-    <select id="EngMajor" name="major" required>
+    <select id="EngMajor" name="major" required> 
         <option value="">--Select your major--</option>
         <option value="Computer">Computer Engineering</option>
         <option value="Electrical">Electrical Engineering</option>
@@ -47,14 +47,14 @@ experience, and Final Year Project preferences.</p>
         <option value="Biomedical">Biomedical Engineering</option>
     </select><br><br>
     <label for="GPA">GPA/100:</label>
-    <input type="number" id="GPA" name="gpa" min="00" max="100"  required><br><br>
+    <input type="number" id="GPA" name="gpa" min="00" max="100" placeholder="xx"  required><br><br>
 
     <label for="CreditsCompleted">Credits Completed:</label>
-    <input type="number" id="CreditsCompleted" name="credits" min="0" max="146" required><br><br>
+    <input type="number" id="CreditsCompleted" name="credits" min="0" max="146" placeholder="xxx" required><br><br>
 
     <fieldset>
     <legend>Expected Graduation:</legend>
-    <input type="radio" id="ExpectedGraduationSpring" name="graduation" value="Spring" required>
+    <input type="radio" id="ExpectedGraduationSpring" name="graduation" value="Spring" required> 
     <label for="ExpectedGraduationSpring">Spring</label>
     <input type="radio" id="ExpectedGraduationSummer" name="graduation" value="Summer" required>
     <label for="ExpectedGraduationSummer">Summer</label>
@@ -76,7 +76,7 @@ experience, and Final Year Project preferences.</p>
 
 <fieldset>
     <legend>3.Technical background</legend>
-    <label for="experience">Select all areas in which you have experience:</label><br>
+    <label>Select all areas in which you have experience:</label><br>
     <input type="checkbox" id="programming" name="skills" value="Programming">
     <label for="programming">Programming</label><br>
     <input type="checkbox" id="embedded-systems" name="skills" value="Embedded Systems">

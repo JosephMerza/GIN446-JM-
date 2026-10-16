@@ -292,7 +292,7 @@ function showResults(score, percentage, message, correction) {
   document.getElementById("quizPanel").style.display = "none";
   document.getElementById("resultsPanel").style.display = "block";
   document.getElementById("scoreText").textContent =
-    `Score: ${score} / ${questions.length}`;
+    `Score: ${score} / ${questions.length}`; 
   document.getElementById("percentageText").textContent =
     `Percentage: ${percentage}%`;
   document.getElementById("performanceText").textContent = message;

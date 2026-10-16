@@ -1,4 +1,4 @@
-```css
+
 /* =========================================================
    NEON NETWORK
    Flask Web Programming Portfolio
@@ -446,5 +446,13 @@ a:hover {
 
         animation: none !important;
     }
+}
+
+
+.navigation button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
