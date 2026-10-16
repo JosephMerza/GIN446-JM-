@@ -20,12 +20,16 @@ confirmButton.id = 'confirm-button';
 confirmButton.value = 'Confirm & Submit';
 reviewPanel.appendChild(confirmButton);
 
-form.insertAdjacentElement('afterend', reviewPanel);
+form.insertAdjacentElement('afterend', reviewPanel); /*
+it Insert the review panel
+immediately after the form. using afterend
+*/
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
- if (!form.checkValidity()) {
-     form.reportValidity(); 
+
+form.addEventListener("submit", function (e) { 
+    e.preventDefault(); //prevent submission
+ if (!form.checkValidity()) { //if form not valid
+     form.reportValidity();  //report a validation msg
  return; 
  }
  const studentId = document.getElementById('student_id').value;
@@ -38,12 +42,12 @@ form.addEventListener("submit", function (e) {
  const major = document.getElementById('EngMajor').value;
  const gpa =document.getElementById('GPA').value;
  const credits = document.getElementById('CreditsCompleted').value;
- const expectedGraduation = document.querySelector('input[name="graduation"]:checked')?.value;
+ const expectedGraduation = document.querySelector('input[name="graduation"]:checked')?.value; 
  const graduationMonth = document.getElementById('ExpectedGraduationMandY').value;
- const internship = document.querySelector('input[name="internship_completed"]:checked')?.value;
- const skills = [...document.querySelectorAll('input[name="skills"]:checked')].map(cb => cb.value);
+ const internship = document.querySelector('input[name="internship_completed"]:checked')?.value; 
+ const skills = [...document.querySelectorAll('input[name="skills"]:checked')].map(cb => cb.value); 
  const primaryLanguage = document.getElementById('PrimaryProgLang').value;
- const software = [...document.querySelectorAll('#EngSoftwareUsed option:checked')].filter(option => option.value !== 'selection').map(option => option.value);
+ const software = [...document.getElementById("EngSoftwareUsed").selectedOptions].map(opt => opt.value);
  const projectTitle = document.getElementById('ProjectTitle').value;
  const projectArea = document.getElementById('ProjectArea').value;
  const projectDescription = document.getElementById('ProjectDescription').value;
@@ -51,7 +55,7 @@ form.addEventListener("submit", function (e) {
  const projectColor = document.getElementById('ProjDashboardColor').value;
  const meetingDate = document.getElementById('MeetingDate').value;
  const meetingTime = document.getElementById('MeetingTime').value;
- const confirmation = document.getElementById('Confirmation').checked;
+ const confirmation = document.getElementById('Confirmation').checked; //1 value possible so i can put the check box to getElementById not Queryselector
   
 reviewContent.textContent = "";
  
@@ -159,5 +163,5 @@ editButton.addEventListener('click', function() {
     form.style.display = 'block';
 });
 confirmButton.addEventListener('click', function() {
-    HTMLFormElement.prototype.submit.call(form);
+    HTMLFormElement.prototype.submit.call(form); //ai debuging line not mine
 });
