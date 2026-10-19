@@ -175,7 +175,7 @@ function getPerformanceMessage(percentage) {
     return "Good";
   }
   else if (percentage >= 50) {
-    return "Average";
+    return "Pass";
   }
   else {
     return "Needs improvement";
